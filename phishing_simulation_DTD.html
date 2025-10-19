@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Simulasi Phishing — Edukasi (Kelompok)</title>
+<style>
+  :root{
+    --bg:#e9f5ff;
+    --blue:#1e6fb8;
+    --blue-2:#2b90d9;
+    --muted:#556;
+    --card:#ffffff;
+    --danger:#c0392b;
+  }
+  *{box-sizing:border-box;font-family:Inter, system-ui, Arial, sans-serif}
+  body{margin:0;background:var(--bg);color:#07203a}
+  .banner{background:linear-gradient(90deg,var(--blue),var(--blue-2));color:#fff;padding:12px 18px;font-weight:700;text-align:center;position:sticky;top:0;z-index:10}
+  .wrap{max-width:1100px;margin:28px auto;padding:22px}
+  .card{background:var(--card);border-radius:10px;box-shadow:0 8px 28px rgba(6,40,80,0.08);padding:20px}
+  h1{margin:0;color:var(--blue);font-size:28px}
+  h2{color:var(--blue-2);margin:10px 0 12px}
+  p.lead{color:var(--muted);margin:8px 0 16px;line-height:1.5}
+  .members{margin-top:12px}
+  .member{background:#f3fbff;border:1px solid #e0f0ff;padding:8px;border-radius:6px;margin:6px 0}
+  .btn{background:var(--blue);color:#fff;padding:10px 14px;border-radius:8px;border:none;cursor:pointer;font-weight:700}
+  .btn.ghost{background:transparent;border:1px solid #cfe6fb;color:var(--blue)}
+  .flex{display:flex;gap:12px;align-items:center}
+  .checkbox{display:flex;gap:8px;align-items:center;margin-top:12px}
+  .note{background:#fff4f4;border-left:4px solid var(--danger);padding:10px;border-radius:6px;color:#6b1f1f;margin-top:12px}
+  .hidden{display:none}
+  .navs{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+  .sub-card{margin-top:14px;padding:12px;border-radius:8px;background:#f8fbff;border:1px solid #eef8ff}
+  .lure{background:linear-gradient(180deg,#fff9e6,#fff);padding:12px;border-radius:8px;border:1px dashed #ffd69e;margin:12px 0}
+  .qr-small{width:110px;height:110px;margin:auto;display:block}
+  table{width:100%;border-collapse:collapse;margin-top:12px}
+  th,td{padding:8px;border:1px solid #eef7ff;font-size:13px}
+  th{background:#f4fbff}
+  .controls{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+  .footer{margin-top:16px;text-align:right;color:var(--muted);font-size:13px}
+  .warning-banner{background:#fff7e6;border-left:4px solid #f5c542;padding:10px;border-radius:6px;margin-bottom:12px}
+  .big-warning{background:#ffecec;border-left:6px solid var(--danger);padding:12px;border-radius:8px;margin:12px 0;color:var(--danger);font-weight:700}
+  @media(max-width:880px){ .wrap{padding:12px} .flex{flex-direction:column;align-items:flex-start} }
+</style>
+</head>
+<body>
+  <div class="banner">SIMULASI EDUKASI — PHISHING (UNTUK KEPERLUAN KELAS)</div>
+
+  <div class="wrap">
+    <!-- PAGE: LANDING -->
+    <section id="page-landing" class="card">
+      <h1>Simulasi Phishing — Halaman Pembuka</h1>
+      <p class="lead">Halaman ini dibuat untuk kebutuhan tugas mata kuliah Dasar Teknologi Digital — kampanye literasi tentang <strong>phishing</strong>. <strong>Ini hanya SIMULASI</strong> dan tidak mengirim data ke internet. Mohon gunakan <em>akun dummy</em> (contoh: test@example.com, password: example123) saat mencoba.</p>
+
+      <div class="sub-card">
+        <strong>Anggota Kelompok</strong>
+        <div class="members" id="membersList">
+          <!-- inserted by JS -->
+                 </div>
+      </div>
+      <div class="sub-card">
+        <div class="warning-banner"><strong>PERINGATAN PENTING:</strong> Simulasi ini dibuat untuk edukasi saja. Jangan mengisi data pribadi/akun nyata. Semua data akan tersimpan <em>hanya</em> di browser lokalmu.</div>
+
+        <div style="margin-top:8px">
+          <label for="agree" style="font-weight:700">Saya telah membaca dan mengerti bahwa ini simulasi</label>
+          <div class="checkbox"><input id="agree" type="checkbox"/> <label for="agree">Saya setuju dan akan menggunakan akun dummy</label></div>
+        </div>
+
+        <div style="margin-top:12px">
+          <button class="btn" id="btnToDetail" onclick="goToDetail()" disabled>Lanjut ke Penjelasan (Halaman Berikutnya)</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE: DETAIL -->
+    <section id="page-detail" class="card hidden">
+      <h2>Apa itu Phishing?</h2>
+      <p class="lead">Phishing adalah upaya penipuan yang mencoba mendapatkan informasi sensitif (kata sandi, nomor rekening, nomor telepon, dsb.) dengan berpura-pura sebagai pihak tepercaya. Tujuan kami: memahami bagaimana phishing bekerja dan bagaimana cara mencegahnya.</p>
+
+      <div class="sub-card">
+        <h3>Cara Kerja (ringkas)</h3>
+        <ol>
+          <li>Pelaku membuat pesan/email/iklan yang tampak legitim.</li>
+          <li>Pengguna diklik menuju tautan berbahaya (domain palsu).</li>
+          <li>Situs palsu meminta kredensial lalu menyalahgunakan data.</li>
+        </ol>
+      </div>
+
+      <div class="sub-card">
+        <h3>Cara Mengenali Phishing</h3>
+        <ul>
+          <li>Periksa URL dan domain — apakah benar?</li>
+          <li>Permintaan data yang tidak wajar (mis. password, nomor rekening) melalui link.</li>
+          <li>Kesalahan ejaan/grammar dan desain tidak konsisten.</li>
+          <li>Tekanan waktu: "klaim hadiahnya sekarang"</li>
+        </ul>
+      </div>
+
+      <div class="sub-card">
+        <h3>Cara Mengatasi & Pencegahan</h3>
+        <ul>
+          <li>Jangan klik link dari sumber tidak jelas.</li>
+          <li>Verifikasi domain & gunakan bookmark resmi.</li>
+          <li>Aktifkan 2FA pada akun penting.</li>
+          <li>Laporkan ke pihak terkait dan ganti password jika ragu.</li>
+        </ul>
+      </div>
+
+      <div class="sub-card">
+        <h3>Contoh Lure (iklan palsu)</h3>
+        <p>Di bawah ini contoh "iklan" yang memancing: tawaran uang gratis untuk mendaftar — <em>contoh tipikal lure phishing</em>.</p>
+        <div class="lure">
+          <strong>UANG GRATIS Rp1.000.000 — Daftar sekarang!</strong>
+          <p style="margin:8px 0;color:var(--muted)">Cara klaim: klik link & lengkapi data. Tawaran hanya berlaku 24 jam.</p>
+          <div style="text-align:center">
+            <!-- internal link to phishing page -->
+            <button class="btn" onclick="goToPhish()">Klik untuk Klaim</button>
+          </div>
+        </div>
+
+        <p style="color:var(--muted);font-size:13px">Catatan: tombol di atas merupakan bagian dari simulasi untuk melihat pola phishing — situs target juga simulasi lokal.</p>
+      </div>
+
+      <div class="controls">
+        <button class="btn ghost" onclick="backToLanding()">Kembali</button>
+        <button class="btn" onclick="goToPhish()">Buka Contoh Phishing (Simulasi)</button>
+      </div>
+    </section>
+
+    <!-- PAGE: PHISHING FORM -->
+    <section id="page-phish" class="card hidden">
+      <h2>Contoh Halaman Palsu (Simulasi)</h2>
+
+      <div class="big-warning">INSTRUKSI: Ini adalah SIMULASI. <strong>Gunakan HANYA akun dummy</strong> (contoh: test@example.com). Data yang dikirim akan disimpan secara lokal dan ditampilkan dalam bentuk TERMASKED/hashing.</div>
+
+      <div class="sub-card">
+        <form id="phishForm" onsubmit="submitPhish(event)">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+            <div>
+              <label><strong>Email</strong></label>
+              <input id="ph_email" type="text" placeholder="nama@example.com" style="width:100%;padding:8px;border-radius:6px;border:1px solid #dfeefc" required>
+            </div>
+            <div>
+              <label><strong>Password</strong></label>
+              <input id="ph_password" type="password" placeholder="Masukkan password" style="width:100%;padding:8px;border-radius:6px;border:1px solid #dfeefc" required>
+            </div>
+            <div>
+              <label><strong>No. HP</strong></label>
+              <input id="ph_phone" type="text" placeholder="0812xxxx" style="width:100%;padding:8px;border-radius:6px;border:1px solid #dfeefc">
+            </div>
+            <div>
+              <label><strong>No. Rekening</strong></label>
+              <input id="ph_account" type="text" placeholder="1234xxxx" style="width:100%;padding:8px;border-radius:6px;border:1px solid #dfeefc">
+            </div>
+          </div>
+
+          <div style="margin-top:10px">
+            <label style="font-size:13px;color:var(--muted)">
+              <input type="checkbox" id="confirmDummy"/> Saya akan menggunakan akun dummy (sangat disarankan)
+            </label>
+          </div>
+
+          <div style="margin-top:12px" class="flex">
+            <button class="btn" type="submit">Kirim</button>
+            <button type="button" class="btn ghost" onclick="toDetailFromPhish()">Kembali ke Penjelasan</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="sub-card">
+        <h3>Data yang pernah dikirim (Simulasi)</h3>
+        <div id="phishStats">Belum ada data.</div>
+        <div style="overflow:auto;max-height:240px;margin-top:8px">
+          <table id="phishTable" style="display:none">
+            <thead><tr><th>#</th><th>Waktu</th><th>Email (masked)</th><th>Password (SHA-256)</th><th>No HP (masked)</th><th>Rek (masked)</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+        <div class="controls">
+          <button class="btn ghost" onclick="downloadCsv()">Download CSV (masked)</button>
+          <button class="btn ghost" onclick="clearAllData()">Clear Data</button>
+        </div>
+      </div>
+
+      <div style="margin-top:10px" class="note">Sekali lagi: jangan pernah melakukan ini terhadap akun orang nyata. Ini hanya untuk tugas edukasi.</div>
+    </section>
+
+    <div class="footer">Proyek Kelompok — Dasar Teknologi Digital</div>
+  </div>
+
+<script>
+/* ===========================
+   Data & Member Handling
+   =========================== */
+const defaultMembers = [
+  "Irfan Rizki Aditri",
+  "Azzam Arumi",
+  "m rizky ramadhan",
+  "Gio Pardede",
+  "Joel Christian Tobing",
+  "Raihan Fakhri Noor"
+];
+
+let members = [...defaultMembers];
+let submissions = []; // will hold objects {ts, emailMasked, pwdHash, phoneMasked, acctMasked, raw? (not storing raw password)}
+
+// load members to UI
+function renderMembers(){
+  const wrap = document.getElementById('membersList');
+  wrap.innerHTML = '';
+  members.forEach((m, i)=>{
+    const el = document.createElement('div');
+    el.className = 'member';
+    el.textContent = `${i+1}. ${m}`;
+    wrap.appendChild(el);
+  });
+  document.getElementById('membersEdit').value = members.join("\\n");
+}
+function saveMembers(){
+  const txt = document.getElementById('membersEdit').value;
+  const arr = txt.split(/\\r?\\n/).map(s=>s.trim()).filter(s=>s.length);
+  members = arr.length ? arr : [...defaultMembers];
+  renderMembers();
+  alert('Daftar anggota disimpan (lokal pada halaman).');
+}
+function resetMembers(){
+  if(!confirm('Reset anggota ke daftar awal?')) return;
+  members = [...defaultMembers];
+  renderMembers();
+}
+
+/* ===========================
+   Page navigation
+   =========================== */
+function showPage(id){
+  document.querySelectorAll('section.card').forEach(s=>s.classList.add('hidden'));
+  document.getElementById(id).classList.remove('hidden');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+document.getElementById('agree').addEventListener('change', function(){
+  document.getElementById('btnToDetail').disabled = !this.checked;
+});
+function goToDetail(){ showPage('page-detail'); }
+function backToLanding(){ showPage('page-landing'); }
+function goToPhish(){ showPage('page-phish'); renderPhishTable(); }
+function toDetailFromPhish(){ showPage('page-detail'); }
+
+/* ===========================
+   Utility: masking & hashing
+   =========================== */
+function maskEmail(email){
+  // show first char and domain, mask middle
+  try{
+    const parts = email.split('@');
+    if(parts.length<2) return '***';
+    const name = parts[0];
+    const domain = parts[1];
+    const first = name.charAt(0) || '*';
+    const maskedName = first + '***' + (name.length>1?name.slice(-1):'');
+    return maskedName + '@' + domain;
+  }catch(e){ return '***@***'; }
+}
+function maskPhone(p){
+  // keep last 2 digits
+  const s = String(p||'').replace(/\\D/g,'');
+  if(!s) return '';
+  if(s.length<=2) return '*'.repeat(s.length);
+  return '*'.repeat(s.length-2) + s.slice(-2);
+}
+function maskAccount(a){
+  const s = String(a||'').replace(/\\s/g,'');
+  if(!s) return '';
+  if(s.length<=4) return '*'.repeat(s.length);
+  return '*'.repeat(s.length-4) + s.slice(-4);
+}
+async function sha256Hex(str){
+  // return hex representation
+  const enc = new TextEncoder().encode(str);
+  const buf = await crypto.subtle.digest('SHA-256', enc);
+  const arr = Array.from(new Uint8Array(buf));
+  return arr.map(b => b.toString(16).padStart(2,'0')).join('');
+}
+
+/* ===========================
+   Form submit (phishing form)
+   =========================== */
+async function submitPhish(e){
+  e && e.preventDefault();
+  const email = document.getElementById('ph_email').value.trim();
+  const pwd = document.getElementById('ph_password').value;
+  const phone = document.getElementById('ph_phone').value.trim();
+  const acct = document.getElementById('ph_account').value.trim();
+  const confirmDummy = document.getElementById('confirmDummy').checked;
+
+  if(!confirmDummy){
+    if(!confirm('Anda belum mencentang bahwa akan memakai akun dummy. Lanjutkan? (disarankan: gunakan akun dummy)')){}
+  }
+
+  // simple input check
+  if(!email || !pwd){
+    alert('Email dan password harus diisi (gunakan dummy).');
+    return;
+  }
+
+  // compute hash of password
+  const pwdHash = await sha256Hex(pwd);
+
+  const entry = {
+    ts: new Date().toISOString(),
+    emailMasked: maskEmail(email),
+    pwdHash: pwdHash,
+    phoneMasked: maskPhone(phone),
+    acctMasked: maskAccount(acct)
+  };
+  submissions.push(entry);
+  // optional: store to localStorage so page reload keeps it
+  try{ localStorage.setItem('sim_phish_submissions', JSON.stringify(submissions)); }catch(e){}
+  renderPhishTable();
+
+  // show confirmation to user
+  alert('Terima kasih — ini adalah simulasi. Data tersimpan secara lokal dan ditampilkan dalam bentuk mask/hash.');
+  // reset form but keep checkbox off
+  document.getElementById('phishForm').reset();
+}
+
+/* ===========================
+   Render & CSV export
+   =========================== */
+function renderPhishTable(){
+  const wrap = document.getElementById('phishStats');
+  const table = document.getElementById('phishTable');
+  const tbody = table.querySelector('tbody');
+  tbody.innerHTML = '';
+  if(!submissions || submissions.length===0){
+    wrap.textContent = 'Belum ada data.';
+    table.style.display = 'none';
+    return;
+  }
+  submissions.forEach((s,i)=>{
+    const tr = document.createElement('tr');
+    const idx = document.createElement('td'); idx.textContent = i+1;
+    const ts = document.createElement('td'); ts.textContent = s.ts;
+    const em = document.createElement('td'); em.textContent = s.emailMasked;
+    const ph = document.createElement('td'); ph.textContent = s.pwdHash;
+    const phone = document.createElement('td'); phone.textContent = s.phoneMasked || '-';
+    const acc = document.createElement('td'); acc.textContent = s.acctMasked || '-';
+    tr.appendChild(idx); tr.appendChild(ts); tr.appendChild(em); tr.appendChild(ph); tr.appendChild(phone); tr.appendChild(acc);
+    tbody.appendChild(tr);
+  });
+  table.style.display = 'table';
+  wrap.textContent = `${submissions.length} entri tersimpan secara lokal (masked / hashed).`;
+}
+
+function downloadCsv(){
+  if(!submissions || submissions.length===0){ alert('Tidak ada data untuk diunduh.'); return; }
+  const header = ['No','Timestamp','Email_masked','Password_SHA256','Phone_masked','Account_masked'];
+  const rows = submissions.map((s,i)=>[i+1, s.ts, s.emailMasked, s.pwdHash, s.phoneMasked, s.acctMasked]);
+  const csv = [header, ...rows].map(r => r.map(cell => `"${String(cell).replace(/"/g,'""')}"`).join(',')).join('\\r\\n');
+  const blob = new Blob([csv], {type:'text/csv;charset=utf-8;'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a'); a.href = url;
+  a.download = `simulasi_phish_${new Date().toISOString().slice(0,19).replace(/[:T]/g,'-')}.csv`;
+  document.body.appendChild(a); a.click(); a.remove();
+  URL.revokeObjectURL(url);
+}
+
+function clearAllData(){
+  if(!confirm('Hapus semua data simulasi (local) ? Tindakan ini tidak dapat dibatalkan.')) return;
+  submissions = [];
+  try{ localStorage.removeItem('sim_phish_submissions'); }catch(e){}
+  renderPhishTable();
+  alert('Data simulasi dihapus.');
+}
+
+/* ===========================
+   Load from localStorage if any
+   =========================== */
+(function init(){
+  try{
+    const stored = localStorage.getItem('sim_phish_submissions');
+    if(stored) submissions = JSON.parse(stored);
+  }catch(e){}
+  renderPhishTable();
+  renderMembers();
+  // default show landing
+  showPage('page-landing');
+})();
+
+</script>
+</body>
+</html>
